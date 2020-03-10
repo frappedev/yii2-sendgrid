@@ -498,11 +498,35 @@ class Message extends BaseMessage
                         }
 
                         if ( isset($envelope['cc']) ) {
-                            $personalization->addCc( new \SendGrid\Email(null, $envelope['cc']) );
+                            if ( is_array($envelope['cc']) ) {
+                                foreach ($envelope['cc'] as $key => $val) {
+                                    if ( is_int($key) ) {
+                                        // `[0 => email]`
+                                        $personalization->addCc( new \SendGrid\Email(null, $val) );
+                                    } else {
+                                        // `[email => name]`
+                                        $personalization->addCc( new \SendGrid\Email($val, $key) );
+                                    }
+                                }
+                            } else {
+                                $personalization->addCc( new \SendGrid\Email(null, $envelope['cc']) );
+                            }
                         }
 
                         if ( isset($envelope['bcc']) ) {
-                            $personalization->addBcc( new \SendGrid\Email(null, $envelope['bcc']) );
+                            if ( is_array($envelope['bcc']) ) {
+                                foreach ($envelope['bcc'] as $key => $val) {
+                                    if ( is_int($key) ) {
+                                        // `[0 => email]`
+                                        $personalization->addBcc( new \SendGrid\Email(null, $val) );
+                                    } else {
+                                        // `[email => name]`
+                                        $personalization->addBcc( new \SendGrid\Email($val, $key) );
+                                    }
+                                }
+                            } else {
+                                $personalization->addBcc( new \SendGrid\Email(null, $envelope['bcc']) );
+                            }
                         }
 
                         if ( isset($envelope['subject']) ) {
