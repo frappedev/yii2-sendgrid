@@ -1,6 +1,7 @@
 <?php
 namespace wadeshuler\sendgrid;
 
+use Exception;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\Json;
@@ -165,6 +166,10 @@ class Mailer extends BaseMailer
 
             $formatResponse = ['code' => $response->statusCode(), 'headers' => $response->headers(), 'body' => $response->body()];
             $this->addRawResponse($formatResponse);
+
+            if($response->statusCode() === 400) {
+                throw new \Exception('Bad Request: ' . $response->body());
+            }
 
             if ( ($response->statusCode() !== 202) && ($response->statusCode() !== 200) ) {
                 throw new \Exception( $this->parseErrorCode($response->statusCode()) );
