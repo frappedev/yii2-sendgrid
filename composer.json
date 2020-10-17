@@ -1,23 +1,19 @@
 {
-    "name": "frappedev/yii2-sendgrid",
-    "description": "Yii2 Mailer extension for SendGrid with batch mailing support. This extension is designed to replace them all! The only Yii2 SendGrid extension you will need! This package is a repost with a small fix.",
+    "name": "wadeshuler/yii2-sendgrid",
+    "description": "Yii2 Mailer extension for SendGrid with batch mailing support. This extension is designed to replace them all! The only Yii2 SendGrid extension you will need!",
     "keywords": ["yii2", "sendgrid", "yii2 mailer", "yii2 sendgrid", "yii2 sendgrid mailer"],
-    "homepage": "https://github.com/frappedev/yii2-sendgrid-mailer",
+    "homepage": "https://github.com/wadeshuler/yii2-sendgrid-mailer",
     "type": "yii2-extension",
     "license": "MIT",
     "authors": [
         {
             "name": "Wade Shuler",
             "email": "wadeshuler@users.noreply.github.com"
-        },
-        {
-            "name": "Harpreet Singh",
-            "email": "harpreet@frappedev.co.in"
         }
     ],
     "support": {
-        "issues": "https://github.com/frappedev/yii2-sendgrid/issues?state=open",
-        "source": "https://github.com/frappedev/yii2-sendgrid"
+        "issues": "https://github.com/wadeshuler/yii2-sendgrid/issues?state=open",
+        "source": "https://github.com/wadeshuler/yii2-sendgrid"
     },
     "minimum-stability": "stable",
     "require": {
